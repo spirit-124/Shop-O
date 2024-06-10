@@ -4,14 +4,21 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const morgan = require("morgan");
 
-app.use(cors({
-  origin: ['https://eshop-tutorial-pyri.vercel.app',],
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: ["http://localhost:3000/"],
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(morgan("dev"));
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
+
 app.use("/test", (req, res) => {
   res.send("Hello world!");
 });

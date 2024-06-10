@@ -9,11 +9,11 @@ import styles from "../../styles/styles";
 import { TfiGallery } from "react-icons/tfi";
 import socketIO from "socket.io-client";
 import { format } from "timeago.js";
-const ENDPOINT = "https://socket-ecommerce-tu68.onrender.com/";
+const ENDPOINT = "https://shop-o-g5y3.onrender.com/";
 const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
 
 const DashboardMessages = () => {
-  const { seller,isLoading } = useSelector((state) => state.seller);
+  const { seller, isLoading } = useSelector((state) => state.seller);
   const [conversations, setConversations] = useState([]);
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [currentChat, setCurrentChat] = useState();
@@ -260,7 +260,7 @@ const MessageList = ({
   setUserData,
   online,
   setActiveStatus,
-  isLoading
+  isLoading,
 }) => {
   console.log(data);
   const [user, setUser] = useState([]);
@@ -336,9 +336,9 @@ const SellerInbox = ({
   handleImageUpload,
 }) => {
   return (
-    <div className="w-full min-h-full flex flex-col justify-between">
+    <div className="flex flex-col justify-between w-full min-h-full">
       {/* message header */}
-      <div className="w-full flex p-3 items-center justify-between bg-slate-200">
+      <div className="flex items-center justify-between w-full p-3 bg-slate-200">
         <div className="flex">
           <img
             src={`${userData?.avatar?.url}`}
@@ -404,7 +404,7 @@ const SellerInbox = ({
       {/* send message input */}
       <form
         aria-required={true}
-        className="p-3 relative w-full flex justify-between items-center"
+        className="relative flex items-center justify-between w-full p-3"
         onSubmit={sendMessageHandler}
       >
         <div className="w-[30px]">
@@ -432,7 +432,7 @@ const SellerInbox = ({
           <label htmlFor="send">
             <AiOutlineSend
               size={20}
-              className="absolute right-4 top-5 cursor-pointer"
+              className="absolute cursor-pointer right-4 top-5"
             />
           </label>
         </div>
