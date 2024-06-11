@@ -6,7 +6,13 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const morgan = require("morgan");
 
-app.use(cors());
+app.use(
+  cors({
+    // origin: ["http://localhost:3000/"],  //* USed for only local server
+    origin: ["https://shop-b522vma5k-spirit124s-projects.vercel.app/"],
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(cookieParser());
