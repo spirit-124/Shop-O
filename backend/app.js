@@ -6,10 +6,19 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const morgan = require("morgan");
 
+const allowedOrigins = [];
+
 app.use(
   cors({
-    // origin: ["http://localhost:3000/"],  //* USed for only local server
-    origin: ["https://shop-o-seven.vercel.app/"],
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: "GET,POST,PUT,DELETE,HEAD,PATCH",
+    allowedHeaders: "",
     credentials: true,
   })
 );
