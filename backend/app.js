@@ -8,8 +8,8 @@ const morgan = require("morgan");
 
 app.use(
   cors({
-    // origin: ["http://localhost:3000/"],  //* USed for only local server
-    origin: ["https://shop-b522vma5k-spirit124s-projects.vercel.app/"],
+    // origin: ["http://localhost:3001/"], //* USed for only local server
+    origin: ["https://shop-o-seven.vercel.app/"],
     credentials: true,
   })
 );
