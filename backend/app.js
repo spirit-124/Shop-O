@@ -10,8 +10,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://shop-o-seven.vercel.app/",
-      "https://shop-96cpx5bdz-spirit124s-projects.vercel.app/",
+      "https://shop-o-seven.vercel.app",
+      "https://shop-96cpx5bdz-spirit124s-projects.vercel.app",
     ],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
